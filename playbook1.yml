@@ -1,0 +1,16 @@
+---
+
+- name: Creating a user
+  hosts: all
+  tasks:
+    - name: user creation
+      user:
+          name: victus
+          password: victus
+          uid: 1010
+          home: /home/ubuntu
+          shell: /bin/bash
+          comment: "Noraml User"
+
+...
+

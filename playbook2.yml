@@ -1,0 +1,37 @@
+---
+
+- name: Configuring apache2 
+  hosts: all
+  tasks: 
+   - name: installing apache2
+     apt:
+      name: apache2
+      state: present  
+      update_cache: yes
+   
+   - name: replacing the content
+     copy:
+      content: "Welcome to world"
+      dest: /var/www/html/index.html
+
+   - name: restarting the server
+     service: 
+      name: apache2
+      state: restarted
+   
+   - name: pausing the server
+     pause:
+      seconds: 40    
+
+   - name: checking the url connection for server 1
+     uri:
+      url: http://172.31.9.193
+      status_code: 200
+    
+   - name: checking the url connection for server 2
+     uri:
+      url: http://172.31.8.239
+      status_code: 200
+
+...        
+    

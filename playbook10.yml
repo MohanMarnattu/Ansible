@@ -1,0 +1,14 @@
+---
+- name: installation/uninstallation of s/w's 
+  hosts: all
+  tasks: 
+   - name: installation of softwares
+     apt:
+       name: "{{item.a}}"
+       state: "{{item.b}}"
+       update_cache: "{{item.c}}"
+     with_items:
+       - {a: tree,b: latest,c: yes}
+       - {a: maven,b: absent,c: no}
+  
+...

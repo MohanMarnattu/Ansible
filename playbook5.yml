@@ -1,0 +1,11 @@
+---
+- name: Installing/uninstalling a s/w using Global-scope variable
+  hosts: all
+  tasks:
+   - name: 
+     apt: 
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+
+...

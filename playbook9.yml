@@ -1,0 +1,15 @@
+---
+- name: creating a user using playscope variable
+  hosts: 172.31.8.239
+  gather_facts: no
+  become: yes
+  tasks: 
+   - name: user creation
+     user: 
+      name: "{{a}}"
+      password:  "{{b}}"
+      uid: "{{c}}"
+      home: "{{d}}"
+      comment: "{{e}}"
+        
+...

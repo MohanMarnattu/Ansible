@@ -1,0 +1,26 @@
+---
+- name: Tags
+  hosts: all
+  gather_facts: no
+  become: yes  
+  tasks: 
+    - name: installing tree
+      apt: 
+       name: tree
+       state: present
+       update_cache: yes
+      tags: tree  
+
+    - name: user creation
+      user:
+       name: Radha
+       password: intelliq
+       uid: 1342
+      tags: user  
+
+    - name: copying the files
+      copy: 
+       src: /etc/passwd
+       dest: /tmp
+           
+...

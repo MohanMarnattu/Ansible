@@ -1,0 +1,16 @@
+---
+
+- name: user creation
+  hosts: all
+  tasks: 
+   - name: Creating a user
+     user: 
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+
+   - name: File/Directory creation on home of user 
+     file: 
+      name: "{{d}}"
+      state: "{{e}}"   
+...

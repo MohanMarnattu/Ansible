@@ -1,0 +1,49 @@
+---
+
+- name: Configuring tomcat9 and tomcat9-admin
+  hosts: all
+  tasks: 
+   - name: installing tomcat9
+     apt: 
+      name: tomcat9
+      state: present
+      update_cache: yes
+
+   - name: installing tomcat9-admin
+     apt: 
+      name: tomcat9-admin
+      state: present
+      update_cache: yes
+
+   - name: replacing the users file in tomcat9
+     copy:
+      src: tomcat-users.xml
+      dest: /etc/tomcat9
+
+   - name: replacing the port number of tomcat9 server
+     replace:
+      regexp: 8080
+      replace: 8888
+      path: /etc/tomcat9/server.xml
+
+   - name: restaring the server tomcat9
+     service: 
+      name: tomcat9
+      state: restarted 
+   
+   - name: pausing the server for 50 seconds
+     pause:
+      seconds: 50
+
+   - name: checking the url connetion of server 1
+     uri: 
+      url: http://172.31.9.193
+      status_code: 200
+
+   - name: checking the url connection of server 2
+     uri:
+      url: http://172.31.8.239
+      status_code: 200   
+
+
+...
