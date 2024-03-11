@@ -1,0 +1,23 @@
+---
+- name: Error Handling
+  hosts: server
+  gather_facts: no
+  become: yes
+  tasks: 
+   - block: 
+      - name: tomcat8 installation
+        apt: 
+         name: tomcat8
+         state: present
+         update_cache: yes
+     rescue:
+      - name: tomcat8 installation
+        apt:
+         name: tomcat9
+         state: present
+         update_cache: yes
+     always:
+      - name: setup successful
+        debug:
+         msg: The Installation is Successful       
+...

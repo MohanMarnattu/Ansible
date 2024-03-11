@@ -1,0 +1,15 @@
+---
+- name: Configuring apache2 server by calling all the child playbooks
+  hosts: server
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: calling all the child playbooks
+      include_tasks: "{{item}}"
+      with_items: 
+        - install.yml
+        - edit_indexfile.yml
+        - restart_apache2.yml
+        - check_url_response.yml
+
+...

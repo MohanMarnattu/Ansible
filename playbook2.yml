@@ -1,7 +1,7 @@
 ---
 
 - name: Configuring apache2 
-  hosts: all
+  hosts: server
   tasks: 
    - name: installing apache2
      apt:
@@ -25,12 +25,12 @@
 
    - name: checking the url connection for server 1
      uri:
-      url: http://172.31.9.193
+      url: http://172.31.8.239
       status_code: 200
     
    - name: checking the url connection for server 2
      uri:
-      url: http://172.31.8.239
+      url: http://172.31.9.193
       status_code: 200
 
 ...        
