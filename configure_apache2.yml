@@ -1,0 +1,6 @@
+---
+- name: Calling all the child playbooks Using Roles
+  hosts: all
+  roles: 
+    - apache2
+...

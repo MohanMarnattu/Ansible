@@ -1,0 +1,12 @@
+---
+- name: Edit the Users.xml files
+  copy:
+    src: "{{src1}}"
+    dest: "{{dest1}}"
+- name: Replace port-number of tomcat9      
+  replace: 
+    regexp: "{{port1}}"
+    replace: "{{port2}}"
+    path: "{{path1}}"
+      
+...

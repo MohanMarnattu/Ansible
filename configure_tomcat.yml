@@ -1,0 +1,9 @@
+---
+- name: Executing the child playbooks
+  hosts: all
+  gather_facts: no
+  become: yes
+  roles:
+    - tomcat  
+...
+

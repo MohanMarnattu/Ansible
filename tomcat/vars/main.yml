@@ -1,0 +1,19 @@
+---
+# vars file for tomcat
+pkg1: tomcat9
+pkg2: tomcat9-admin
+state1: present
+cache1: yes
+cache2: no
+src1: tomcat-users.xml
+dest1: /etc/tomcat9
+port1: 8080
+port2: 9090
+path1: /etc/tomcat9/server.xml
+restart1: restarted
+seconds: 30  
+url1: "http://172.31.8.11:9090"
+url2: "http://172.31.9.34:9090"
+code1: 200
+
+
